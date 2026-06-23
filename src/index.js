@@ -17,6 +17,26 @@ app.use('/api', detectRouter);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`FireVision API running at http://localhost:${PORT}`);
-  console.log(`POST /api/detect (multipart/form-data, field: image)`);
+  const baseUrl = `http://localhost:${PORT}`;
+  const model = process.env.MODEL_NAME || '(default)';
+  const apiBase = process.env.OPENAI_BASE_URL || '(default)';
+
+  console.log('');
+  console.log(`  🔥 FireVision API 已启动`);
+  console.log(`  ─────────────────────────`);
+  console.log(`  接口地址  POST ${baseUrl}/api/detect`);
+  console.log(`  模型名称  ${model}`);
+  console.log(`  模型服务  ${apiBase}`);
+  console.log(``);
+  console.log(`  📤 测试命令`);
+  console.log(`  ──────────`);
+  console.log(`  # 方式一：上传文件`);
+  console.log(`  curl -X POST ${baseUrl}/api/detect \\`);
+  console.log(`    -F "image=@/path/to/photo.jpg"`);
+  console.log(``);
+  console.log(`  # 方式二：图片 URL`);
+  console.log(`  curl -X POST ${baseUrl}/api/detect \\`);
+  console.log(`    -H "Content-Type: application/json" \\`);
+  console.log(`    -d '{"imageUrl":"https://example.com/fire.jpg"}'`);
+  console.log('');
 });
