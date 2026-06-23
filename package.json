@@ -1,0 +1,17 @@
+{
+  "name": "firevision",
+  "version": "1.0.0",
+  "description": "火灾识别 API - 基于 MiniMax M3 多模态大模型",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2",
+    "openai": "^4.86.2"
+  }
+}
